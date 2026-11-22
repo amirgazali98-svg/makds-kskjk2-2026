@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#061638">
+<meta name="description" content="Jemputan Majlis Anugerah Kecemerlangan Diniah & Sahsiah 2026, KAFA Sekolah Kebangsaan Jalan Kuantan 2.">
+<title>MAKDS KSKJK2 2026 | Royal Heritage Masterpiece V4.1</title>
+
+<style>
+:root {
+  --navy: #04112d;
+  --royal: #103b87;
+  --gold: #e8b94d;
+  --gold-light: #ffe9a0;
+  --white: #fffaf0;
+  --ease: cubic-bezier(.22,1,.36,1);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  min-width: 320px;
+  overflow-x: hidden;
+  background: #020817;
+  color: var(--white);
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+button, a { font: inherit; }
+button { cursor: pointer; }
+[hidden] { display: none !important; }
+
+button:focus-visible, a:focus-visible {
+  outline: 3px solid var(--gold-light);
+  outline-offset: 4px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 13px 21px;
+  border-radius: 6px;
+  font: 700 13px/1.4 Arial, sans-serif;
+  text-align: center;
+  text-decoration: none;
+  transition: transform .25s var(--ease), filter .25s;
+}
+
+.btn:hover { transform: translateY(-2px); }
+
+.btn-gold {
+  color: #12224b;
+  border: 1px solid #fff0ae;
+  background: linear-gradient(145deg,#a46d22,#fff0aa 40%,#d4a03b 75%,#ffe18a);
+  box-shadow: 0 5px 0 #76501d, 0 10px 25px #0007;
+}
+
+.btn-outline {
+  color: var(--gold-light);
+  border: 1px solid var(--gold);
+  background: #071d4a;
+}
+
+/* PEMBUKAAN 3D */
+
+.intro {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  perspective: 1500px;
+  background: #020817;
+}
+
+.intro-light {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  background: radial-gradient(circle,#fff0a9 0%,#e6b64b 18%,transparent 65%);
+  transition: opacity 1.4s ease;
+}
+
+.door {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50.1%;
+  border: 5px ridge #e7bb54;
+  background: radial-gradient(ellipse at center,#17468e,#071a45 65%,#02091f);
+  box-shadow: inset 0 0 80px #000c;
+  backface-visibility: hidden;
+  transition: transform 1.85s cubic-bezier(.62,.05,.2,1);
+}
+
+.door::before {
+  content: "";
+  position: absolute;
+  inset: 7%;
+  border: 2px solid #e9c36d;
+  box-shadow: inset 0 0 0 9px #061638,inset 0 0 0 11px #a67829;
+}
+
+.door::after {
+  content: "✦";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  font-size: clamp(65px,14vw,180px);
+  color: #ffe8a0;
+  text-shadow: 0 0 35px #ffd65d99;
+}
+
+.door-left { left: 0; transform-origin: left center; }
+.door-right { right: 0; transform-origin: right center; }
+
+.intro.is-opening .door-left { transform: rotateY(-112deg); }
+.intro.is-opening .door-right { transform: rotateY(112deg); }
+.intro.is-opening .intro-light { opacity: .85; }
+
+.intro-card {
+  position: relative;
+  z-index: 5;
+  width: min(88vw,520px);
+  padding: 34px 22px;
+  text-align: center;
+  border: 2px solid var(--gold);
+  background: linear-gradient(145deg,#103879,#030e2d);
+  box-shadow: 0 25px 75px #000c,0 0 45px #e8b94d44;
+  transition: opacity .4s,transform .4s;
+}
+
+.intro.is-opening .intro-card {
+  opacity: 0;
+  transform: scale(1.06);
+  pointer-events: none;
+}
+
+.bismillah {
+  font-size: clamp(26px,5vw,40px);
+  line-height: 1.8;
+  color: #fff0bd;
+}
+
+.intro-school {
+  color: #f4d58a;
+  font: 700 11px/1.7 Arial,sans-serif;
+  letter-spacing: 1.2px;
+}
+
+.intro-title {
+  margin: 15px 0;
+  color: #ffe58d;
+  font-size: clamp(34px,7vw,58px);
+  line-height: 1.1;
+  text-shadow: 0 4px 12px #0008;
+}
+
+.intro-desc {
+  color: #fff0cb;
+  font: 13px/1.8 Arial,sans-serif;
+}
+
+.intro-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 23px;
+}
+
+/* KAD ASAL */
+
+.hero {
+  padding: clamp(8px,2vw,28px);
+  background: radial-gradient(ellipse at top,#153f88,#04112d 65%,#020817);
+}
+
+.invitation {
+  position: relative;
+  isolation: isolate;
+  width: min(100%,1624px);
+  margin: auto;
+  overflow: hidden;
+  border: 1px solid #dcb052;
+  box-shadow: 0 25px 75px #000b,0 0 35px #e8b94d22;
+}
+
+.original-art {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* 
+  Lapisan pengganti jalur maklumat.
+  Koordinat ini berdasarkan komposisi imej rujukan.
+  Perlu disemak selepas gambar sebenar dimuat naik.
+*/
+
+.corrected-strip {
+  position: absolute;
+  z-index: 8;
+  left: 17.8%;
+  top: 60.2%;
+  width: 64.2%;
+  height: 9%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.3fr;
+  align-items: stretch;
+  padding: 2px;
+  border: clamp(1px,.2vw,3px) dashed #fff8e8;
+  border-radius: clamp(4px,1vw,15px);
+  background: #04143f;
+  box-shadow: 0 0 0 5px #04143f;
+}
+
+.strip-cell {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 3px clamp(3px,.6vw,10px);
+  color: #ffdc66;
+  font: 700 clamp(6px,1.1vw,18px)/1.15 Arial,sans-serif;
+}
+
+.strip-cell + .strip-cell {
+  border-left: 2px dashed #fff8e8;
+}
+
+.strip-cell strong, .strip-cell span { display: block; }
+.strip-cell span { margin-top: 3px; }
+
+/* Logo asal: dipaparkan di kawasan logo imej */
+.kafa-logo {
+  position: absolute;
+  z-index: 9;
+  left: 37.1%;
+  top: 3.1%;
+  width: 5.4%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 5px #0008);
+}
+
+/* CAHAYA DAN PARTIKEL */
+
+.light-sweep {
+  position: absolute;
+  z-index: 5;
+  inset: -35%;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateX(-85%);
+  background: linear-gradient(110deg,transparent 38%,#fff9d319 46%,#fff9d34a 50%,#fff9d319 54%,transparent 62%);
+}
+
+.invitation.is-revealed .light-sweep {
+  animation: sweep 3.2s ease-out 1 both;
+}
+
+@keyframes sweep {
+  0% { opacity: 0; transform: translateX(-85%); }
+  30% { opacity: .8; }
+  100% { opacity: 0; transform: translateX(85%); }
+}
+
+.sparkle-layer {
+  position: absolute;
+  z-index: 6;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.sparkle {
+  position: absolute;
+  color: #fff2b5;
+  font-size: var(--size);
+  text-shadow: 0 0 8px white,0 0 20px #ffd65d;
+  animation: twinkle var(--speed) ease-in-out infinite;
+  animation-delay: var(--delay);
+}
+
+@keyframes twinkle {
+  0%,100% { opacity: .1; transform: scale(.6); }
+  50% { opacity: .95; transform: scale(1.2); }
+}
+
+.crystal-glint {
+  position: absolute;
+  z-index: 7;
+  left: 79%;
+  top: 43%;
+  color: #fff8d6;
+  font-size: clamp(12px,2vw,32px);
+  text-shadow: 0 0 15px white,0 0 35px #ffe58d;
+  pointer-events: none;
+  animation: crystal 6s ease-in-out infinite;
+}
+
+@keyframes crystal {
+  0%,75%,100% { opacity: 0; transform: scale(.5) rotate(0); }
+  83% { opacity: 1; transform: scale(1.25) rotate(45deg); }
+  92% { opacity: 0; transform: scale(.7) rotate(90deg); }
+}
+
+/* MAKLUMAT TELEFON */
+
+.mobile-info {
+  display: none;
+  padding: 18px 10px;
+  background: #04112d;
+}
+
+.info-card {
+  max-width: 650px;
+  margin: auto;
+  padding: 25px 20px;
+  border: 1px solid var(--gold);
+  border-radius: 12px;
+  background: linear-gradient(145deg,#123a7e,#06183e);
+  box-shadow: 0 15px 35px #0006;
+}
+
+.info-card h2 {
+  margin: 0 0 15px;
+  color: #ffe58d;
+  text-align: center;
+  font-size: 26px;
+}
+
+.info-row {
+  padding: 13px 0;
+  border-bottom: 1px solid #e8b94d55;
+  font-family: Arial,sans-serif;
+}
+
+.info-row:last-child { border-bottom: 0; }
+
+.info-row small {
+  display: block;
+  margin-bottom: 5px;
+  color: #f1d38a;
+  font-size: 12px;
+}
+
+.info-row strong {
+  display: block;
+  color: white;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* INTERAKTIF */
+
+.experience {
+  padding: 60px 15px 75px;
+  background: radial-gradient(ellipse at top,#123b7f,#051638 65%,#020817);
+  text-align: center;
+}
+
+.panel {
+  width: min(100%,880px);
+  margin: auto;
+  padding: clamp(25px,5vw,48px);
+  border: 1px solid var(--gold);
+  border-radius: 15px;
+  background: linear-gradient(145deg,#10346f,#031028);
+  box-shadow: 0 20px 55px #0008;
+}
+
+.eyebrow {
+  color: #ffe58d;
+  font: 700 11px Arial,sans-serif;
+  letter-spacing: 2px;
+}
+
+.panel h2 {
+  margin: 12px 0;
+  color: #ffe58d;
+  font-size: clamp(27px,5vw,44px);
+}
+
+.panel p {
+  color: #f3e8ce;
+  font: 14px/1.85 Arial,sans-serif;
+}
+
+.countdown {
+  display: grid;
+  grid-template-columns: repeat(4,minmax(0,1fr));
+  gap: 10px;
+  max-width: 580px;
+  margin: 28px auto 15px;
+}
+
+.count-box {
+  padding: 20px 5px;
+  border: 1px solid #e8b94dcc;
+  border-radius: 9px;
+  background: #04143b;
+}
+
+.count-box strong {
+  display: block;
+  color: #ffe58d;
+  font: 800 clamp(22px,5vw,42px) Arial,sans-serif;
+}
+
+.count-box span {
+  display: block;
+  margin-top: 7px;
+  color: #f5e9ca;
+  font: 11px Arial,sans-serif;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 13px;
+  margin-top: 25px;
+}
+
+.notice {
+  max-width: 620px;
+  margin: 28px auto 0;
+  padding: 15px;
+  border: 1px solid #e8b94d77;
+  border-radius: 8px;
+  background: #041332;
+  color: #f3e7c9;
+  font: 13px/1.8 Arial,sans-serif;
+}
+
+.audio-button {
+  position: fixed;
+  z-index: 100;
+  right: 18px;
+  bottom: 18px;
+  width: 56px;
+  height: 56px;
+  border: 2px solid var(--gold);
+  border-radius: 50%;
+  background: #09245a;
+  color: #ffe58d;
+  font-size: 23px;
+  box-shadow: 0 8px 25px #0009;
+}
+
+footer {
+  padding: 28px 15px 35px;
+  background: #020817;
+  color: #ddcda8;
+  text-align: center;
+  font: 12px/1.8 Arial,sans-serif;
+}
+
+footer strong { color: #ffe58d; }
+
+/* RESPONSIF */
+
+@media(max-width:760px) {
+  .hero { padding: 9px 6px 15px; }
+
+  .corrected-strip {
+    border-width: 1px;
+    border-radius: 4px;
+    box-shadow: 0 0 0 3px #04143f;
+  }
+
+  .strip-cell {
+    padding: 1px 2px;
+    font-size: clamp(4px,1.05vw,8px);
+  }
+
+  .strip-cell + .strip-cell { border-left-width: 1px; }
+
+  .mobile-info { display: block; }
+
+  .experience { padding: 40px 12px 60px; }
+
+  .panel { padding: 28px 15px; }
+
+  .actions { flex-direction: column; }
+  .actions .btn { width: 100%; }
+}
+
+@media(max-width:380px) {
+  .countdown { gap: 5px; }
+  .count-box { padding: 13px 3px; }
+  .count-box span { font-size: 10px; }
+  .intro-card { padding: 25px 15px; }
+}
+
+/* AKSESIBILITI */
+
+@media(prefers-reduced-motion:reduce) {
+  *,*::before,*::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- PINTU PEMBUKAAN -->
+<div class="intro" id="intro" role="dialog" aria-modal="true" aria-label="Pembukaan jemputan" hidden>
+  <div class="intro-light" aria-hidden="true"></div>
+  <div class="door door-left" aria-hidden="true"></div>
+  <div class="door door-right" aria-hidden="true"></div>
+
+  <div class="intro-card">
+    <div class="bismillah" lang="ar">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+    <p class="intro-school">KAFA SEKOLAH KEBANGSAAN JALAN KUANTAN 2</p>
+    <h1 class="intro-title">UNDANGAN<br>ISTIMEWA</h1>
+    <p class="intro-desc">MAJLIS ANUGERAH KECEMERLANGAN<br>DINIAH &amp; SAHSIAH 2026</p>
+
+    <div class="intro-actions">
+      <button class="btn btn-gold" id="openButton" type="button">✨ BUKA JEMPUTAN</button>
+      <button class="btn btn-outline" id="skipButton" type="button">LANGKAU</button>
+    </div>
+  </div>
+</div>
+
+<main id="mainContent" tabindex="-1">
+
+  <!-- KAD ASAL -->
+  <section class="hero" aria-label="Kad jemputan MAKDS KSKJK2 2026">
+    <div class="invitation" id="invitation">
+
+      <img
+        class="original-art"
+        src="kad-asal.jpeg"
+        width="1624"
+        height="928"
+        alt="Kad jemputan MAKDS 2026 bertemakan Royal Blue dan Gold. Maklumat majlis yang betul dipaparkan pada jalur maklumat."
+        fetchpriority="high"
+      >
+
+      <img
+        class="kafa-logo"
+        src="logo-kafa.png"
+        width="120"
+        height="120"
+        alt="Logo KAFA SKJK2"
+      >
+
+      <div class="light-sweep" aria-hidden="true"></div>
+      <div class="sparkle-layer" id="sparkleLayer" aria-hidden="true"></div>
+      <div class="crystal-glint" aria-hidden="true">✦</div>
+
+      <!-- JALUR MAKLUMAT BETUL -->
+      <div class="corrected-strip">
+        <div class="strip-cell">
+          <strong>28 November 2026</strong>
+          <span>Sabtu</span>
+        </div>
+        <div class="strip-cell">
+          <strong>Hari: Sabtu</strong>
+          <span>7:30 Pg – 12:00 Tgh</span>
+        </div>
+        <div class="strip-cell">
+          <strong>Lokasi:</strong>
+          <span>Dewan Saidina Abu Bakar As-Siddiq</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MAKLUMAT MUDAH BACA DI TELEFON -->
+  <section class="mobile-info" aria-label="Maklumat majlis">
+    <div class="info-card">
+      <h2>Maklumat Majlis</h2>
+
+      <div class="info-row">
+        <small>TARIKH</small>
+        <strong>28 November 2026</strong>
+      </div>
+
+      <div class="info-row">
+        <small>HARI</small>
+        <strong>Sabtu</strong>
+      </div>
+
+      <div class="info-row">
+        <small>MASA</small>
+        <strong>7:30 pagi – 12:00 tengah hari</strong>
+      </div>
+
+      <div class="info-row">
+        <small>TEMPAT</small>
+        <strong>Dewan Saidina Abu Bakar As-Siddiq</strong>
+      </div>
+    </div>
+  </section>
+
+  <!-- PANEL INTERAKTIF -->
+  <section class="experience" aria-labelledby="experienceTitle">
+    <div class="panel">
+      <p class="eyebrow">MAJLIS PENUH PENGHARGAAN</p>
+      <h2 id="experienceTitle">Detik Gemilang Menanti</h2>
+
+      <p>
+        Dengan segala hormatnya, pihak KAFA Sekolah Kebangsaan Jalan Kuantan 2
+        menjemput tuan dan puan untuk bersama-sama memeriahkan
+        Majlis Anugerah Kecemerlangan Diniah &amp; Sahsiah 2026.
+      </p>
+
+      <div class="countdown" aria-label="Kiraan detik majlis">
+        <div class="count-box"><strong id="days">00</strong><span>HARI</span></div>
+        <div class="count-box"><strong id="hours">00</strong><span>JAM</span></div>
+        <div class="count-box"><strong id="minutes">00</strong><span>MINIT</span></div>
+        <div class="count-box"><strong id="seconds">00</strong><span>SAAT</span></div>
+      </div>
+
+      <p id="countStatus">Menghitung detik menuju majlis.</p>
+
+      <div class="actions">
+        <button class="btn btn-gold" id="shareButton" type="button">💬 KONGSI JEMPUTAN</button>
+        <button class="btn btn-outline" id="rsvpButton" type="button">✉ RSVP KEHADIRAN</button>
+      </div>
+
+      <div class="notice">
+        <strong>Makluman:</strong> Sistem RSVP sedang disediakan.
+        Versi ini ialah pratonton reka bentuk dan animasi.
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- KAWALAN MUZIK -->
+<button class="audio-button" id="audioButton" type="button" aria-label="Hidupkan muzik" aria-pressed="false" hidden>♪</button>
+<audio id="music" src="muzik-oud.mp3" preload="none" loop></audio>
+
+<footer>
+  <strong>KAFA SEKOLAH KEBANGSAAN JALAN KUANTAN 2</strong><br>
+  Majlis Anugerah Kecemerlangan Diniah &amp; Sahsiah 2026<br>
+  Sabtu · 28 November 2026
+</footer>
+
+<script>
+"use strict";
+
+(() => {
+  const CONFIG = {
+    eventStart: Date.parse("2026-11-28T07:30:00+08:00"),
+    eventEnd: Date.parse("2026-11-28T12:00:00+08:00"),
+    invitationURL: "https://amirgazali98-svg.github.io/makds-kskjk2-2026/",
+    desktopParticles: 25,
+    mobileParticles: 10,
+    musicVolume: 0.35
+  };
+
+  const $ = id => document.getElementById(id);
+
+  const intro = $("intro");
+  const main = $("mainContent");
+  const invitation = $("invitation");
+  const music = $("music");
+  const audioButton = $("audioButton");
+  const sparkleLayer = $("sparkleLayer");
+
+  const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
+
+  let opened = false;
+  let musicPlaying = false;
+  let musicAvailable = false;
+  let fadeAnimation = null;
+
+  /* PEMBUKAAN */
+
+  function finishOpening() {
+    if (opened) return;
+    opened = true;
+
+    intro.hidden = true;
+    main.inert = false;
+    main.focus({ preventScroll: true });
+    invitation.classList.add("is-revealed");
+
+    if (musicAvailable) audioButton.hidden = false;
+  }
+
+  function openInvitation() {
+    if (opened || intro.classList.contains("is-opening")) return;
+
+    if (musicAvailable) startMusic();
+
+    if (reducedMotion.matches) {
+      finishOpening();
+      return;
+    }
+
+    intro.classList.add("is-opening");
+
+    const door = intro.querySelector(".door-left");
+    let completed = false;
+
+    function complete() {
+      if (completed) return;
+      completed = true;
+      door.removeEventListener("transitionend", onEnd);
+      finishOpening();
+    }
+
+    function onEnd(event) {
+      if (event.propertyName === "transform") complete();
+    }
+
+    door.addEventListener("transitionend", onEnd);
+    setTimeout(complete, 2400);
+  }
+
+  $("openButton").addEventListener("click", openInvitation);
+  $("skipButton").addEventListener("click", finishOpening);
+
+  /* COUNTDOWN */
+
+  function updateCountdown() {
+    const now = Date.now();
+
+    if (now >= CONFIG.eventEnd) {
+      ["days","hours","minutes","seconds"].forEach(id => $(id).textContent = "00");
+      $("countStatus").textContent = "Terima kasih atas sokongan dan kehadiran anda.";
+      return;
+    }
+
+    if (now >= CONFIG.eventStart) {
+      ["days","hours","minutes","seconds"].forEach(id => $(id).textContent = "00");
+      $("countStatus").textContent = "Majlis sedang berlangsung. Selamat datang!";
+      return;
+    }
+
+    const remaining = CONFIG.eventStart - now;
+    const pad = n => String(n).padStart(2,"0");
+
+    $("days").textContent = pad(Math.floor(remaining / 86400000));
+    $("hours").textContent = pad(Math.floor(remaining % 86400000 / 3600000));
+    $("minutes").textContent = pad(Math.floor(remaining % 3600000 / 60000));
+    $("seconds").textContent = pad(Math.floor(remaining % 60000 / 1000));
+  }
+
+  /* PARTIKEL EMAS */
+
+  function createSparkles() {
+    sparkleLayer.replaceChildren();
+    if (reducedMotion.matches) return;
+
+    const total = innerWidth <= 760 ? CONFIG.mobileParticles : CONFIG.desktopParticles;
+    const zones = [
+      [12,18],[20,35],[28,13],[75,11],[87,25],
+      [92,58],[14,73],[39,80],[64,76],[81,83]
+    ];
+
+    for (let i = 0; i < total; i++) {
+      const [x,y] = zones[i % zones.length];
+      const sparkle = document.createElement("span");
+      sparkle.className = "sparkle";
+      sparkle.textContent = "✦";
+      sparkle.style.left = `${Math.max(2,Math.min(98,x + (i * 13 % 11) - 5))}%`;
+      sparkle.style.top = `${Math.max(2,Math.min(98,y + (i * 17 % 13) - 6))}%`;
+      sparkle.style.setProperty("--size",`${5 + (i % 5) * 2}px`);
+      sparkle.style.setProperty("--speed",`${2.5 + (i % 6) * .5}s`);
+      sparkle.style.setProperty("--delay",`${(i % 8) * -.45}s`);
+      sparkleLayer.appendChild(sparkle);
+    }
+  }
+
+  document.addEventListener("visibilitychange", () => {
+    sparkleLayer.querySelectorAll(".sparkle").forEach(el => {
+      el.style.animationPlayState = document.hidden ? "paused" : "running";
+    });
+  });
+
+  /* MUZIK */
+
+  function updateAudioButton() {
+    audioButton.textContent = musicPlaying ? "♫" : "♪";
+    audioButton.setAttribute("aria-pressed",String(musicPlaying));
+    audioButton.setAttribute("aria-label",musicPlaying ? "Matikan muzik" : "Hidupkan muzik");
+  }
+
+  function fadeTo(target,duration,done) {
+    if (fadeAnimation) cancelAnimationFrame(fadeAnimation);
+
+    const initial = music.volume;
+    const start = performance.now();
+
+    function frame(now) {
+      const progress = Math.min(1,(now - start) / duration);
+      music.volume = initial + (target - initial) * progress;
+
+      if (progress < 1) {
+        fadeAnimation = requestAnimationFrame(frame);
+      } else {
+        fadeAnimation = null;
+        if (done) done();
+      }
+    }
+
+    fadeAnimation = requestAnimationFrame(frame);
+  }
+
+  async function startMusic() {
+    if (!musicAvailable) return;
+
+    try {
+      music.volume = 0;
+      await music.play();
+      musicPlaying = true;
+      fadeTo(CONFIG.musicVolume,1800);
+      updateAudioButton();
+    } catch (error) {
+      musicPlaying = false;
+      updateAudioButton();
+      console.info("Muzik tidak dapat dimainkan:",error.message);
+    }
+  }
+
+  function stopMusic() {
+    musicPlaying = false;
+    updateAudioButton();
+    fadeTo(0,700,() => music.pause());
+  }
+
+  audioButton.addEventListener("click",() => {
+    if (musicPlaying) stopMusic();
+    else startMusic();
+  });
+
+  music.addEventListener("canplay",() => {
+    musicAvailable = true;
+    if (opened) audioButton.hidden = false;
+  });
+
+  music.addEventListener("error",() => {
+    musicAvailable = false;
+    audioButton.hidden = true;
+  });
+
+  music.load();
+
+  /* WHATSAPP */
+
+  $("shareButton").addEventListener("click",() => {
+    const message = [
+      "✨ *JEMPUTAN MAKDS KSKJK2 2026* ✨",
+      "",
+      "*Majlis Anugerah Kecemerlangan Diniah & Sahsiah 2026*",
+      "",
+      "📅 Sabtu, 28 November 2026",
+      "🕢 7:30 pagi – 12:00 tengah hari",
+      "📍 Dewan Saidina Abu Bakar As-Siddiq",
+      "",
+      "Anjuran KAFA Sekolah Kebangsaan Jalan Kuantan 2.",
+      "",
+      "🔗 " + CONFIG.invitationURL
+    ].join("\n");
+
+    window.open(
+      "https://wa.me/?text=" + encodeURIComponent(message),
+      "_blank",
+      "noopener,noreferrer"
+    );
+  });
+
+  /* RSVP PRATONTON */
+
+  $("rsvpButton").addEventListener("click",() => {
+    alert(
+      "Sistem RSVP sedang disediakan.\n\n" +
+      "Versi 4.1 ini memberi tumpuan kepada reka bentuk dan animasi jemputan."
+    );
+  });
+
+  /* INISIALISASI */
+
+  intro.hidden = false;
+  main.inert = true;
+  $("openButton").focus();
+
+  createSparkles();
+  updateCountdown();
+  setInterval(updateCountdown,1000);
+  updateAudioButton();
+
+  matchMedia("(max-width: 760px)").addEventListener("change",createSparkles);
+  reducedMotion.addEventListener("change",createSparkles);
+
+})();
+</script>
+</body>
+</html>
