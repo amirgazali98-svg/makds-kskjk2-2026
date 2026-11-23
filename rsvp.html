@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#071633">
+
+  <title>RSVP MAKDS KSKJK2 2026</title>
+
+  <style>
+    :root {
+      --navy: #071633;
+      --blue: #102d62;
+      --gold: #d9b86c;
+      --gold-light: #f6e4a6;
+      --white: #fffaf0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--white);
+      background:
+        radial-gradient(
+          ellipse at 50% 0%,
+          #214c8c 0%,
+          #102a59 35%,
+          #071633 75%
+        );
+    }
+
+    .page {
+      width: min(720px, calc(100% - 28px));
+      margin: 30px auto;
+      padding: 30px;
+      border: 2px solid var(--gold);
+      border-radius: 24px;
+      background: rgba(5, 17, 43, 0.94);
+      box-shadow:
+        0 0 0 5px rgba(217, 184, 108, 0.08),
+        0 20px 65px rgba(0, 0, 0, 0.35);
+    }
+
+    .header {
+      text-align: center;
+      padding-bottom: 24px;
+      border-bottom: 1px solid rgba(217, 184, 108, 0.45);
+    }
+
+    .logo {
+      width: 85px;
+      height: 85px;
+      object-fit: contain;
+      margin-bottom: 12px;
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      letter-spacing: 3px;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 12px 0;
+      color: var(--gold-light);
+      font-size: clamp(25px, 5vw, 40px);
+      line-height: 1.2;
+    }
+
+    .subtitle {
+      font-size: 15px;
+      line-height: 1.8;
+      color: #e9e4d7;
+    }
+
+    .event-info {
+      margin: 22px 0;
+      padding: 16px;
+      border: 1px solid rgba(217, 184, 108, 0.4);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.04);
+      text-align: center;
+      line-height: 1.8;
+    }
+
+    .section-title {
+      margin: 30px 0 15px;
+      color: var(--gold-light);
+      font-size: 21px;
+      border-bottom: 1px solid rgba(217, 184, 108, 0.3);
+      padding-bottom: 10px;
+    }
+
+    label {
+      display: block;
+      margin: 16px 0 8px;
+      font-size: 15px;
+      font-weight: bold;
+    }
+
+    input,
+    select {
+      width: 100%;
+      min-height: 48px;
+      padding: 12px 14px;
+      border: 1px solid #bca16a;
+      border-radius: 10px;
+      background: #fffdf7;
+      color: #17233a;
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+    }
+
+    input:focus,
+    select:focus,
+    button:focus-visible {
+      outline: 3px solid var(--gold-light);
+      outline-offset: 3px;
+    }
+
+    .child-card {
+      position: relative;
+      margin: 16px 0;
+      padding: 20px;
+      border: 1px solid rgba(217, 184, 108, 0.4);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.045);
+    }
+
+    .child-heading {
+      margin: 0 0 10px;
+      color: var(--gold-light);
+      font-size: 17px;
+    }
+
+    .remove-btn,
+    .add-btn {
+      min-height: 44px;
+      border: 1px solid var(--gold);
+      border-radius: 9px;
+      padding: 10px 15px;
+      background: transparent;
+      color: var(--gold-light);
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .remove-btn {
+      margin-top: 15px;
+      border-color: #e9a6a6;
+      color: #ffd5d5;
+    }
+
+    .add-btn {
+      width: 100%;
+      margin-top: 8px;
+    }
+
+    .attendance-options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .attendance-option {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 54px;
+      padding: 12px;
+      border: 1px solid var(--gold);
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .attendance-option input {
+      width: 20px;
+      min-height: auto;
+      height: 20px;
+      margin: 0;
+    }
+
+    .attendance-option span {
+      font-size: 15px;
+    }
+
+    .hint {
+      color: #d8d5cb;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .submit-btn {
+      width: 100%;
+      min-height: 54px;
+      margin-top: 30px;
+      border: 0;
+      border-radius: 12px;
+      background: linear-gradient(
+        135deg,
+        #a97b2d,
+        #f6e4a6,
+        #c49a43
+      );
+      color: #14213b;
+      font-size: 16px;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .submit-btn:disabled {
+      opacity: 0.55;
+      cursor: not-allowed;
+    }
+
+    .message {
+      margin-top: 20px;
+      padding: 15px;
+      border-radius: 10px;
+      line-height: 1.7;
+      display: none;
+    }
+
+    .message.error {
+      display: block;
+      border: 1px solid #ff9d9d;
+      background: #53242a;
+      color: #fff;
+    }
+
+    .success {
+      display: none;
+      text-align: center;
+      line-height: 1.9;
+      padding: 25px 5px;
+    }
+
+    .success h2 {
+      color: var(--gold-light);
+      font-size: 28px;
+    }
+
+    .registration-id {
+      display: inline-block;
+      padding: 10px 14px;
+      border: 1px solid var(--gold);
+      border-radius: 8px;
+      color: var(--gold-light);
+      overflow-wrap: anywhere;
+    }
+
+    .back-link {
+      display: block;
+      margin-top: 25px;
+      text-align: center;
+      color: var(--gold-light);
+      text-decoration: none;
+    }
+
+    .footer {
+      margin-top: 30px;
+      text-align: center;
+      font-size: 12px;
+      color: #cfc6ac;
+    }
+
+    @media (max-width: 520px) {
+      .page {
+        margin: 12px auto;
+        padding: 20px 16px;
+      }
+
+      .attendance-options {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="page">
+
+    <header class="header">
+      <img
+        class="logo"
+        src="logo-kafa.png"
+        alt="Logo KAFA SKJK2"
+      >
+
+      <div class="eyebrow">
+        KAFA SEKOLAH KEBANGSAAN JALAN KUANTAN 2
+      </div>
+
+      <h1>RSVP KEHADIRAN</h1>
+
+      <div class="subtitle">
+        Majlis Anugerah Kecemerlangan<br>
+        Diniah &amp; Sahsiah 2026
+      </div>
+    </header>
+
+    <div class="event-info">
+      <strong>Sabtu, 28 November 2026</strong><br>
+      7:30 pagi – 12:00 tengah hari<br>
+      Dewan Saidina Abu Bakar As-Siddiq
+    </div>
+
+    <div id="formArea">
+
+      <form id="rsvpForm">
+
+        <h2 class="section-title">
+          Maklumat Ibu Bapa / Penjaga
+        </h2>
+
+        <label for="guardian">
+          Nama Penuh Ibu Bapa / Penjaga
+        </label>
+
+        <input
+          id="guardian"
+          name="guardian"
+          type="text"
+          maxlength="120"
+          autocomplete="name"
+          required
+          placeholder="Contoh: Ahmad bin Abdullah"
+        >
+
+        <h2 class="section-title">
+          Maklumat Anak Penerima Anugerah
+        </h2>
+
+        <p class="hint">
+          Jika mempunyai lebih daripada seorang anak penerima
+          anugerah, tekan butang Tambah Anak.
+        </p>
+
+        <div id="childrenContainer"></div>
+
+        <button
+          type="button"
+          id="addChild"
+          class="add-btn"
+        >
+          + Tambah Anak
+        </button>
+
+        <h2 class="section-title">
+          Pengesahan Kehadiran
+        </h2>
+
+        <div class="attendance-options">
+
+          <label class="attendance-option">
+            <input
+              type="radio"
+              name="attendance"
+              value="Hadir"
+              required
+            >
+            <span>Hadir</span>
+          </label>
+
+          <label class="attendance-option">
+            <input
+              type="radio"
+              name="attendance"
+              value="Tidak Hadir"
+            >
+            <span>Tidak Hadir</span>
+          </label>
+
+        </div>
+
+        <div id="totalArea">
+
+          <label for="total">
+            Jumlah Keseluruhan Ahli Keluarga yang Hadir
+          </label>
+
+          <input
+            id="total"
+            name="total"
+            type="number"
+            min="1"
+            max="30"
+            step="1"
+            inputmode="numeric"
+            placeholder="Contoh: 4"
+          >
+
+          <p class="hint">
+            Termasuk ibu bapa, penjaga dan anak penerima anugerah.
+          </p>
+
+        </div>
+
+        <button
+          type="submit"
+          id="submitBtn"
+          class="submit-btn"
+        >
+          HANTAR PENGESAHAN
+        </button>
+
+        <div
+          id="message"
+          class="message"
+          role="alert"
+          aria-live="assertive"
+        ></div>
+
+      </form>
+
+    </div>
+
+    <section
+      id="successArea"
+      class="success"
+      aria-live="polite"
+    >
+      <h2>
+        Alhamdulillah, Pengesahan Kehadiran Berjaya!
+      </h2>
+
+      <p>
+        Terima kasih atas kesudian tuan/puan
+        memberikan maklum balas kehadiran.
+      </p>
+
+      <p>
+        Maklumat RSVP tuan/puan telah berjaya direkodkan.
+      </p>
+
+      <p>
+        Semoga kehadiran tuan/puan menyerikan
+        Majlis Anugerah Kecemerlangan Diniah
+        &amp; Sahsiah 2026.
+      </p>
+
+      <p>
+        <strong>Sabtu, 28 November 2026</strong><br>
+        7:30 pagi – 12:00 tengah hari<br>
+        Dewan Saidina Abu Bakar As-Siddiq
+      </p>
+
+      <p>
+        Nombor Rujukan Pendaftaran:
+      </p>
+
+      <div
+        id="registrationId"
+        class="registration-id"
+      ></div>
+
+      <p>
+        Dengan ingatan tulus daripada<br>
+        <strong>
+          KAFA Sekolah Kebangsaan Jalan Kuantan 2
+        </strong>
+      </p>
+    </section>
+
+    <a class="back-link" href="index.html">
+      ← Kembali ke Jemputan Utama
+    </a>
+
+    <div class="footer">
+      MAKDS KSKJK2 2026 • Royal Heritage
+    </div>
+
+  </main>
+
+  <script>
+    "use strict";
+
+    const WEB_APP_URL =
+      "https://script.google.com/macros/s/AKfycbxYxteR2cRwrsJjKqAT_45aTrg5NxEVlxmUt3ITYqG44SGn18NsTZVW-SsFVT4Fg5fj-w/exec";
+
+    const CLOSING_TIME =
+      new Date("2026-11-26T23:59:00+08:00").getTime();
+
+    const MAX_CHILDREN = 10;
+
+    const CLASSES = [
+      "1 Iman", "1 Ehsan", "1 Taqwa",
+      "2 Iman", "2 Ehsan", "2 Taqwa", "2 Huffaz",
+      "3 Iman", "3 Ehsan", "3 Taqwa", "3 Huffaz",
+      "4 Iman", "4 Ehsan", "4 Taqwa",
+      "5 Iman", "5 Ehsan", "5 Taqwa",
+      "6 Iman", "6 Ehsan", "6 Taqwa"
+    ];
+
+    const form = document.getElementById("rsvpForm");
+    const container = document.getElementById("childrenContainer");
+    const addButton = document.getElementById("addChild");
+    const totalArea = document.getElementById("totalArea");
+    const totalInput = document.getElementById("total");
+    const message = document.getElementById("message");
+    const submitButton = document.getElementById("submitBtn");
+
+    function showError(text) {
+      message.textContent = text;
+      message.className = "message error";
+      message.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+      });
+    }
+
+    function updateChildNumbers() {
+      const cards = container.querySelectorAll(".child-card");
+
+      cards.forEach((card, index) => {
+        card.querySelector(".child-heading").textContent =
+          "Anak " + (index + 1);
+
+        const removeButton = card.querySelector(".remove-btn");
+        removeButton.hidden = cards.length === 1;
+      });
+
+      addButton.disabled = cards.length >= MAX_CHILDREN;
+    }
+
+    function addChild() {
+      if (container.children.length >= MAX_CHILDREN) return;
+
+      const card = document.createElement("div");
+      card.className = "child-card";
+
+      const heading = document.createElement("h3");
+      heading.className = "child-heading";
+
+      const nameLabel = document.createElement("label");
+      nameLabel.textContent = "Nama Penuh Anak";
+
+      const nameInput = document.createElement("input");
+      nameInput.type = "text";
+      nameInput.className = "child-name";
+      nameInput.maxLength = 120;
+      nameInput.required = true;
+      nameInput.placeholder = "Nama penuh anak penerima anugerah";
+
+      const classLabel = document.createElement("label");
+      classLabel.textContent = "Kelas Anak";
+
+      const classSelect = document.createElement("select");
+      classSelect.className = "child-class";
+      classSelect.required = true;
+
+      const placeholder = document.createElement("option");
+      placeholder.value = "";
+      placeholder.textContent = "-- Pilih Kelas --";
+      classSelect.appendChild(placeholder);
+
+      CLASSES.forEach(className => {
+        const option = document.createElement("option");
+        option.value = className;
+        option.textContent = className;
+        classSelect.appendChild(option);
+      });
+
+      const removeButton = document.createElement("button");
+      removeButton.type = "button";
+      removeButton.className = "remove-btn";
+      removeButton.textContent = "Buang Anak Ini";
+
+      removeButton.addEventListener("click", () => {
+        card.remove();
+        updateChildNumbers();
+      });
+
+      const uniqueId =
+        "child-" + Date.now() + "-" +
+        Math.random().toString(36).slice(2, 7);
+
+      nameInput.id = uniqueId + "-name";
+      nameLabel.htmlFor = nameInput.id;
+
+      classSelect.id = uniqueId + "-class";
+      classLabel.htmlFor = classSelect.id;
+
+      card.append(
+        heading,
+        nameLabel,
+        nameInput,
+        classLabel,
+        classSelect,
+        removeButton
+      );
+
+      container.appendChild(card);
+      updateChildNumbers();
+    }
+
+    addButton.addEventListener("click", addChild);
+
+    function updateAttendance() {
+      const selected = form.querySelector(
+        'input[name="attendance"]:checked'
+      );
+
+      const isPresent =
+        selected && selected.value === "Hadir";
+
+      totalArea.hidden = !isPresent;
+      totalInput.required = Boolean(isPresent);
+
+      if (!isPresent) {
+        totalInput.value = "";
+      }
+    }
+
+    form.querySelectorAll('input[name="attendance"]')
+      .forEach(radio => {
+        radio.addEventListener("change", updateAttendance);
+      });
+
+    function collectChildren() {
+      return Array.from(
+        container.querySelectorAll(".child-card")
+      ).map(card => ({
+        name: card.querySelector(".child-name").value.trim(),
+        className: card.querySelector(".child-class").value
+      }));
+    }
+
+    function setClosedState() {
+      if (Date.now() <= CLOSING_TIME) return false;
+
+      document.getElementById("formArea").innerHTML =
+        '<div class="event-info">' +
+        '<h2>Tempoh RSVP Telah Ditutup</h2>' +
+        '<p>Pengesahan kehadiran ditutup pada ' +
+        '26 November 2026, jam 11:59 malam.</p>' +
+        '</div>';
+
+      return true;
+    }
+
+    form.addEventListener("submit", async event => {
+      event.preventDefault();
+
+      if (setClosedState()) return;
+
+      message.style.display = "none";
+
+      if (!form.reportValidity()) return;
+
+      const selectedAttendance = form.querySelector(
+        'input[name="attendance"]:checked'
+      ).value;
+
+      const total =
+        selectedAttendance === "Hadir"
+          ? Number(totalInput.value)
+          : 0;
+
+      if (
+        selectedAttendance === "Hadir" &&
+        (!Number.isInteger(total) || total < 1 || total > 30)
+      ) {
+        showError("Sila masukkan jumlah hadir antara 1 hingga 30.");
+        return;
+      }
+
+      const data = {
+        guardian: document.getElementById("guardian").value.trim(),
+        attendance: selectedAttendance,
+        total: total,
+        children: collectChildren()
+      };
+
+      submitButton.disabled = true;
+      submitButton.textContent = "SEDANG MENGHANTAR...";
+
+      try {
+        /*
+          Google Apps Script menerima data melalui
+          parameter bernama "data".
+
+          Permintaan menggunakan URLSearchParams dan
+          Content-Type application/x-www-form-urlencoded.
+        */
+
+        const body = new URLSearchParams();
+        body.append("data", JSON.stringify(data));
+
+        const response = await fetch(WEB_APP_URL, {
+          method: "POST",
+          body: body,
+          redirect: "follow"
+        });
+
+        if (!response.ok) {
+          throw new Error("Pelayan tidak dapat dihubungi.");
+        }
+
+        const result = await response.json();
+
+        if (!result.success) {
+          throw new Error(
+            result.message || "Pendaftaran tidak berjaya."
+          );
+        }
+
+        document.getElementById("formArea").hidden = true;
+        document.getElementById("successArea").style.display = "block";
+
+        document.getElementById("registrationId").textContent =
+          result.registrationId;
+
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+
+      } catch (error) {
+        showError(
+          "Pendaftaran belum dapat disahkan. " +
+          "Sila cuba lagi atau hubungi pihak KAFA. " +
+          "Butiran: " + error.message
+        );
+
+      } finally {
+        submitButton.disabled = false;
+        submitButton.textContent = "HANTAR PENGESAHAN";
+      }
+    });
+
+    addChild();
+    updateAttendance();
+    setClosedState();
+  </script>
+
+</body>
+</html>
