@@ -634,7 +634,7 @@ footer strong { color: #ffe58d; }
       <p id="countStatus">Menghitung detik menuju majlis.</p>
 
       <div class="actions">
-        <button class="btn btn-gold" id="shareButton" type="button">💬 KONGSI JEMPUTAN</button>
+        
         <a class="btn btn-outline" href="rsvp.html" id="rsvpButton">✉ RSVP KEHADIRAN</a>
       </div>
 
@@ -856,29 +856,7 @@ footer strong { color: #ffe58d; }
 
   music.load();
 
-  /* WHATSAPP */
-
-  $("shareButton").addEventListener("click",() => {
-    const message = [
-      "✨ *JEMPUTAN MAKDS KSKJK2 2026* ✨",
-      "",
-      "*Majlis Anugerah Kecemerlangan Diniah & Sahsiah 2026*",
-      "",
-      "📅 Sabtu, 28 November 2026",
-      "🕢 7:30 pagi – 12:00 tengah hari",
-      "📍 Dewan Saidina Abu Bakar As-Siddiq",
-      "",
-      "Anjuran KAFA Sekolah Kebangsaan Jalan Kuantan 2.",
-      "",
-      "🔗 " + CONFIG.invitationURL
-    ].join("\n");
-
-    window.open(
-      "https://wa.me/?text=" + encodeURIComponent(message),
-      "_blank",
-      "noopener,noreferrer"
-    );
-  });
+  
 
  
 
