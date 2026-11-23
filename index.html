@@ -635,13 +635,10 @@ footer strong { color: #ffe58d; }
 
       <div class="actions">
         <button class="btn btn-gold" id="shareButton" type="button">💬 KONGSI JEMPUTAN</button>
-        <button class="btn btn-outline" id="rsvpButton" type="button">✉ RSVP KEHADIRAN</button>
+        <a class="btn btn-outline" href="rsvp.html" id="rsvpButton">✉ RSVP KEHADIRAN</a>
       </div>
 
-      <div class="notice">
-        <strong>Makluman:</strong> Sistem RSVP sedang disediakan.
-        Versi ini ialah pratonton reka bentuk dan animasi.
-      </div>
+      
     </div>
   </section>
 
@@ -883,14 +880,7 @@ footer strong { color: #ffe58d; }
     );
   });
 
-  /* RSVP PRATONTON */
-
-  $("rsvpButton").addEventListener("click",() => {
-    alert(
-      "Sistem RSVP sedang disediakan.\n\n" +
-      "Versi 4.1 ini memberi tumpuan kepada reka bentuk dan animasi jemputan."
-    );
-  });
+ 
 
   /* INISIALISASI */
 
